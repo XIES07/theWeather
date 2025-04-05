@@ -9,5 +9,24 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'theWeather';
+  adjustVideoPlaybackSpeed(): void {
+    const videoElement = document.getElementById('background-video');
+
+    if (videoElement && videoElement instanceof HTMLVideoElement) {
+      try {
+        videoElement.playbackRate = 0.6;
+      } catch (error) {
+        console.error('Error al ajustar la velocidad del video:', error);
+      }
+    } else {
+      console.warn('El elemento "background-video" no es un video válido o no existe.');
+    }
+  }
+
+  ngOnInit(): void {
+    window.onload = () => {
+      this.adjustVideoPlaybackSpeed();
+    };
+  }
+
 }

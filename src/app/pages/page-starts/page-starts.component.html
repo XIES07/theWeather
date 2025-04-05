@@ -1,0 +1,54 @@
+<div class="weather-container">
+  <div class="weather-card">
+    <div class="header">
+      <h2 class="title">Consulta el Clima</h2>
+    </div>
+
+    <div class="search-box">
+      <app-search-input 
+        [placeholderText]="'Escribe una ciudad...'" 
+        [items]="cities"
+        (onFilterChange)="onFilterChange($event)"
+        (onItemSelected)="OnCitySelected($event)"
+      ></app-search-input>
+      <button 
+        class="search-button" 
+        (click)="searchWeather()"
+      >
+        Buscar <i class="bi bi-search"></i>
+      </button>
+    </div>
+
+    <div class="content">
+      <div *ngIf="loading" class="loading">
+        <h4>
+          <i class="bi bi-sun-fill spin"></i> Cargando...
+        </h4>
+      </div>
+
+      <div *ngIf="weatherData && !loading" class="weather-info">
+        <div class="temperature" [style.color]="getTemperatureColor(weatherData?.current_weather?.temperature)">
+          {{ weatherData?.current_weather?.temperature }}°C
+        </div>
+        <div class="details">
+          <div class="wind">
+            <i class="bi bi-wind"></i> 
+            {{ weatherData?.current_weather?.windspeed }} km/h
+          </div>
+          <div class="condition">
+            <i [class]="getWeatherIcon(weatherData?.current_weather?.weathercode)"></i> 
+            {{ getWeatherDescription(weatherData?.current_weather?.weathercode) }}
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="error" class="error-message">
+        <i class="bi bi-exclamation-triangle"></i> {{ error }}
+      </div>
+    </div>
+    <div class="footer">
+      &copy; {{ getYear() }}
+    </div>
+  </div>
+ 
+</div>

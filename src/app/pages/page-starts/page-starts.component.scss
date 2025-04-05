@@ -1,0 +1,145 @@
+.weather-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  
+  .weather-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .header {
+    background: #ff781e;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .title {
+    color: white;
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  .search-box {
+    padding: 20px;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .search-button {
+    padding: 12px 20px;
+    background: #ff781ee7;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+  }
+  
+  .search-button:hover {
+    background: #ff781e;
+  }
+  
+  .content {
+    padding: 0 20px 20px;
+    min-height: 200px;
+  }
+  
+  .loading {
+    text-align: center;
+    padding: 20px;
+    color: #ff781e;
+    opacity: 0.8;
+  }
+  
+  .weather-info {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .temperature {
+    font-size: 48px;
+    font-weight: bold;
+    color: #ff781e;
+    margin-bottom: 15px;
+  }
+  
+  .details {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    margin-top: 20px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+  }
+  
+  .wind, .condition {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;
+    background: #F0F8FF;
+  }
+  
+  .wind {
+    border-right: 1px solid #eee;
+  }
+  
+  .error-message {
+    background: #FFD7D7;
+    color: #B22222;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    margin: 20px;
+  }
+  
+  @media (max-width: 480px) {
+    .weather-card {
+      border-radius: 10px;
+    }
+    
+    .title {
+      font-size: 20px;
+    }
+    
+    .search-input, .search-button {
+      padding: 10px;
+      font-size: 14px;
+    }
+  }
+
+  .search-input {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid #ff781ee7;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+  }
+  
+  .search-input:focus {
+    outline: none;
+    border-color: #ff781e;
+    box-shadow: 0 0 0 2px rgba(255, 120, 30, 0.2);
+  }
+
+  .footer {
+    background-color: #ff781e;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 14px;
+    font-family: 'Arial', sans-serif;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+    margin-top: auto;
+  }

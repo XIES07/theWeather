@@ -1,0 +1,24 @@
+<div class="d-flex flex-column">
+  <input
+    type="text"
+    class="form-control search-input"
+    [placeholder]="placeholderText"
+    [(ngModel)]="filterText"
+    (input)="onInputChange()"
+    (keydown)="handleKeydown($event)"
+  />
+
+  <div class="dropdown" *ngIf="filteredItems.length > 0 && isDropdownOpen">
+    <div class="w-100 dropdown-menu show">
+      <section
+        *ngFor="let item of filteredItems; let i = index"
+        class="dropdown-item"
+        [ngClass]="{ active: i === highlightedIndex }"
+        (mouseenter)="highlightedIndex = i"
+        (click)="selectItem(item)"
+      >
+        {{ getFormattedItem(item) }}
+      </section>
+    </div>
+  </div>
+</div>
